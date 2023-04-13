@@ -50,14 +50,20 @@ Widget user({
 Widget strong(List skills) {
   return Column(children: [
     const Text('Strong Side:'),
-    Container(
-      padding: EdgeInsets.all(8),
-      child: Text(skills[2]),
-      decoration: BoxDecoration(
-        color: Colors.greenAccent,
-        borderRadius: BorderRadius.circular(10),
-      ),
-    )
+    Wrap(
+        children: skills.map((index) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          padding: EdgeInsets.all(8),
+          child: Text(index),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent,
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      );
+    }).toList())
   ]);
 }
 
@@ -71,6 +77,7 @@ void main() {
     'Creativity',
     'Time Management',
     'Decision Making',
+    
   ];
   runApp(MaterialApp(
     home: Scaffold(
